@@ -1,0 +1,14 @@
+syntax = "proto3";
+
+option go_package = "./btrace_span";
+
+message Context {
+    string traceID = 1;
+    string spanID = 2;
+}
+
+message Span {
+    string name = 1;
+    Context currentContext = 2;
+    Context parentContext = 3;
+}
