@@ -7,6 +7,12 @@ message Context {
     string spanID = 2;
 }
 
+message Timestamp {
+    string started = 1;
+    string ended = 2;
+    float duration = 3;
+}
+
 message Span {
     string name = 1;
     Context currentContext = 2;

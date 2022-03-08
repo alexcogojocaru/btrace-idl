@@ -1,0 +1,20 @@
+syntax = "proto3";
+
+option go_package = "./btrace_agent";
+
+message Span {
+
+}
+
+message Response {
+
+}
+
+message BatchSpan {
+    repeated Span spans = 1;
+}
+
+service AgentService {
+    rpc StreamSpan(Span) returns (Response);
+    rpc StreamBatch(BatchSpan) returns (Response);
+}
