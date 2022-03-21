@@ -20,10 +20,10 @@ message Span {
     Timestamp timestamp = 4;
 }
 
-message Response {
+message ResponseV1 {
 
 }
 
 service CollectorService {
-    rpc StreamSpan(Span) returns (Response);
+    rpc StreamSpan(Span) returns (ResponseV1);
 }
