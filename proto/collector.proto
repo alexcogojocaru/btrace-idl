@@ -2,28 +2,28 @@ syntax = "proto3";
 
 option go_package = "./btrace_collector";
 
-message Context {
+message ContextC {
     string traceID = 1;
     string spanID = 2;
 }
 
-message Timestamp {
+message TimestampC {
     string started = 1;
     string ended = 2;
     float duration = 3;
 }
 
-message Span {
+message SpanC {
     string name = 1;
-    Context currentContext = 2;
-    Context parentContext = 3;
-    Timestamp timestamp = 4;
+    ContextC currentContext = 2;
+    ContextC parentContext = 3;
+    TimestampC timestamp = 4;
 }
 
-message ResponseV1 {
+message ResponseC {
 
 }
 
 service CollectorService {
-    rpc StreamSpan(Span) returns (ResponseV1);
+    rpc StreamSpan(SpanC) returns (ResponseC);
 }
