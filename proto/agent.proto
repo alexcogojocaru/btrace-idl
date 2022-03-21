@@ -17,6 +17,7 @@ message Span {
     string name = 1;
     Context currentContext = 2;
     Context parentContext = 3;
+    Timestamp timestamp = 4;
 }
 
 message Response {
