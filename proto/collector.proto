@@ -1,0 +1,29 @@
+syntax = "proto3";
+
+option go_package = "./btrace_collector";
+
+message ContextC {
+    string traceID = 1;
+    string spanID = 2;
+}
+
+message TimestampC {
+    string started = 1;
+    string ended = 2;
+    float duration = 3;
+}
+
+message SpanC {
+    string name = 1;
+    ContextC currentContext = 2;
+    ContextC parentContext = 3;
+    TimestampC timestamp = 4;
+}
+
+message ResponseC {
+
+}
+
+service CollectorService {
+    rpc StreamSpan(SpanC) returns (ResponseC);
+}
