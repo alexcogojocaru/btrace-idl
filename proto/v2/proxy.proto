@@ -1,6 +1,6 @@
 syntax = "proto3";
 
-option go_package = "./btrace_span";
+option go_package = "./btrace_proxy";
 
 message Timestamp {
     string started = 1;
