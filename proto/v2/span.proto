@@ -15,3 +15,12 @@ message Span {
     string name = 4;
     Timestamp timestamp = 5;
 }
+
+message Response {
+    bool status = 1;
+    string msg = 2;
+}
+
+service Agent {
+    rpc Send(Span) returns (Response);
+}
