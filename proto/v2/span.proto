@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+option go_package = "./btrace_span";
+
+message Timestamp {
+    string started = 1;
+    string ended = 2;
+    float duration = 3;
+}
+
+message Span {
+    string traceID = 1;
+    string spanID = 2;
+    string parentSpanID = 3;
+    string name = 4;
+    Timestamp timestamp = 5;
+}
