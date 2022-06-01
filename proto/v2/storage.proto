@@ -2,13 +2,13 @@ syntax = "proto3";
 
 option go_package = "./btrace_storage";
 
-message Timestamp {
+message StorageTimestamp {
     int64 started = 1;
     int64 ended = 2;
     float duration = 3;
 }
 
-message Span {
+message StorageSpan {
     string serviceName = 1;
 
     string traceID = 2;
@@ -16,7 +16,7 @@ message Span {
     string parentSpanID = 4;
     string spanName = 5;
 
-    Timestamp timestamp = 6;
+    StorageTimestamp timestamp = 6;
 }
 
 message StorageResponse {
@@ -25,5 +25,5 @@ message StorageResponse {
 }
 
 service Storage {
-    rpc Store(Span) returns (StorageResponse);
+    rpc Store(StorageSpan) returns (StorageResponse);
 }
