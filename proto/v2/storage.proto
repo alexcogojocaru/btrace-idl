@@ -19,11 +19,11 @@ message Span {
     Timestamp timestamp = 6;
 }
 
-message Response {
+message StorageResponse {
     bool status = 1;
     string message = 2;
 }
 
 service Storage {
-    rpc Store(Span) returns (Response);
+    rpc Store(Span) returns (StorageResponse);
 }
