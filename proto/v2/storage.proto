@@ -2,8 +2,6 @@ syntax = "proto3";
 
 option go_package = "./btrace_storage";
 
-import "google/protobuf/empty.proto";
-
 message StorageTimestamp {
     int64 started = 1;
     int64 ended = 2;
@@ -41,10 +39,12 @@ message ServicePair {
     ServiceResponse serviceResponse = 2;
 }
 
+message Empty {}
+
 service Storage {
     rpc Store(StorageSpan) returns (StorageResponse);
-    rpc GetServices(google.protobuf.Empty) returns (stream ServiceName);
+    rpc GetServices(Empty) returns (stream ServiceName);
     rpc GetServiceData(ServiceName) returns (ServiceResponse);
     rpc GetMultipleServicesData(stream ServiceName) returns (ServiceResponse);
-    rpc GetData(google.protobuf.Empty) returns (stream ServicePair);
+    rpc GetData(Empty) returns (stream ServicePair);
 }
