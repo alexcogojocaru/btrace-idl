@@ -22,8 +22,29 @@ message StorageSpan {
 message StorageResponse {
     bool status = 1;
     string message = 2;
+    repeated string l = 3;
 }
+
+message ServiceName {
+    string name = 1;
+}
+
+message ServiceResponse {
+    string traceId = 1;
+    repeated StorageSpan spans = 2;
+}
+
+message ServicePair {
+    ServiceName serviceName = 1;
+    ServiceResponse serviceResponse = 2;
+}
+
+message Empty {}
 
 service Storage {
     rpc Store(StorageSpan) returns (StorageResponse);
+    rpc GetServices(Empty) returns (stream ServiceName);
+    rpc GetServiceData(ServiceName) returns (ServiceResponse);
+    rpc GetMultipleServicesData(stream ServiceName) returns (ServiceResponse);
+    rpc GetData(Empty) returns (stream ServicePair);
 }
