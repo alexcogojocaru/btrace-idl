@@ -13,7 +13,8 @@ message Span {
     string spanID = 2;
     string parentSpanID = 3;
     string name = 4;
-    Timestamp timestamp = 5;
+    string serviceName = 5;
+    Timestamp timestamp = 6;
 }
 
 message Response {
