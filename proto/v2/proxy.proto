@@ -9,7 +9,7 @@ message Timestamp {
 }
 
 message KeyValue {
-    string key = 1;
+    string type = 1;
     string value = 2;
 }
 
@@ -20,7 +20,7 @@ message Span {
     string name = 4;
     string serviceName = 5;
     Timestamp timestamp = 6;
-    repeated string logs = 7;
+    repeated KeyValue logs = 7;
 }
 
 message Response {
