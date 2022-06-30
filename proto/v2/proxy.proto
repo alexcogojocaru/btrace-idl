@@ -8,6 +8,11 @@ message Timestamp {
     float duration = 3;
 }
 
+message KeyValue {
+    string key = 1;
+    string value = 2;
+}
+
 message Span {
     string traceID = 1;
     string spanID = 2;
@@ -15,6 +20,7 @@ message Span {
     string name = 4;
     string serviceName = 5;
     Timestamp timestamp = 6;
+    repeated string logs = 7;
 }
 
 message Response {
