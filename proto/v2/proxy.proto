@@ -8,12 +8,19 @@ message Timestamp {
     float duration = 3;
 }
 
+message KeyValue {
+    string type = 1;
+    string value = 2;
+}
+
 message Span {
     string traceID = 1;
     string spanID = 2;
     string parentSpanID = 3;
     string name = 4;
-    Timestamp timestamp = 5;
+    string serviceName = 5;
+    Timestamp timestamp = 6;
+    repeated KeyValue logs = 7;
 }
 
 message Response {
@@ -22,5 +29,9 @@ message Response {
 }
 
 service Agent {
+    // used by both collector and agent
     rpc Send(Span) returns (Response);
+
+    // for the collector endpoint
+    rpc Stream(stream Span) returns (Response);
 }
