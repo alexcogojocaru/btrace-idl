@@ -44,7 +44,7 @@ message Empty {}
 service Storage {
     rpc Store(StorageSpan) returns (StorageResponse);
     rpc GetServices(Empty) returns (stream ServiceName);
-    rpc GetServiceData(ServiceName) returns (ServiceResponse);
+    rpc GetServiceData(ServiceName) returns (stream ServiceResponse);
     rpc GetMultipleServicesData(stream ServiceName) returns (ServiceResponse);
     rpc GetData(Empty) returns (stream ServicePair);
 }
