@@ -28,7 +28,7 @@ message Response {
     string msg = 2;
 }
 
-service Agent {
+service Exporter {
     // used by both collector and agent
     rpc Send(Span) returns (Response);
 
