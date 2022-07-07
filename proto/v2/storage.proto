@@ -8,15 +8,19 @@ message StorageTimestamp {
     float duration = 3;
 }
 
+message StorageKeyValue {
+    string type = 1;
+    string value = 2;
+}
+
 message StorageSpan {
     string serviceName = 1;
-
     string traceID = 2;
     string spanID = 3;
     string parentSpanID = 4;
     string spanName = 5;
-
     StorageTimestamp timestamp = 6;
+    repeated StorageKeyValue logs = 7;
 }
 
 message StorageResponse {
@@ -44,7 +48,7 @@ message Empty {}
 service Storage {
     rpc Store(StorageSpan) returns (StorageResponse);
     rpc GetServices(Empty) returns (stream ServiceName);
-    rpc GetServiceData(ServiceName) returns (ServiceResponse);
+    rpc GetServiceData(ServiceName) returns (stream ServiceResponse);
     rpc GetMultipleServicesData(stream ServiceName) returns (ServiceResponse);
     rpc GetData(Empty) returns (stream ServicePair);
 }

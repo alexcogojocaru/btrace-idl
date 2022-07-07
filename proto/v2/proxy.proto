@@ -29,5 +29,9 @@ message Response {
 }
 
 service Agent {
+    // used by both collector and agent
     rpc Send(Span) returns (Response);
+
+    // for the collector endpoint
+    rpc Stream(stream Span) returns (Response);
 }
