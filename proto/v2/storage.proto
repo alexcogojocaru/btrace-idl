@@ -3,8 +3,8 @@ syntax = "proto3";
 option go_package = "./btrace_storage";
 
 message StorageTimestamp {
-    int64 started = 1;
-    int64 ended = 2;
+    string started = 1;
+    string ended = 2;
     float duration = 3;
 }
 
