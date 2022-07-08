@@ -21,6 +21,7 @@ message Span {
     string serviceName = 5;
     Timestamp timestamp = 6;
     repeated KeyValue logs = 7;
+    string traceService = 8;
 }
 
 message Response {
