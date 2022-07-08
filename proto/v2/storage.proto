@@ -21,6 +21,7 @@ message StorageSpan {
     string spanName = 5;
     StorageTimestamp timestamp = 6;
     repeated StorageKeyValue logs = 7;
+    string traceService = 8;
 }
 
 message StorageResponse {
